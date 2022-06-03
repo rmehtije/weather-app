@@ -18,6 +18,7 @@ export default function NavComponent() {
                     title={selectedCity.city}
                     menuVariant="dark"
                     >
+                        
                         {cities.map( city => 
                             <NavDropdown.Item onClick={() => setSelectedCity(city)} href="#action/3.1">{city.city}</NavDropdown.Item>
                         )}
