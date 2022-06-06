@@ -1,21 +1,21 @@
 [
     {
-        "city": "Tallinn",
+        "name": "Tallinn",
         "lat": 59.4370,
         "long": 24.7536
     },
     {
-        "city": "Tartu",
+        "name": "Tartu",
         "lat": 58.3780,
         "long": 26.7290
     },
     {
-        "city": "Kuressaare",
+        "name": "Kuressaare",
         "lat": 58.2550,
         "long": 22.4919
     },
     {
-        "city": "Parnu",
+        "name": "Parnu",
         "lat": 58.3917,
         "long": 24.4953
     }
