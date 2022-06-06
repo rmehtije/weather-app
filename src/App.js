@@ -10,8 +10,12 @@ function App() {
     event.preventDefault();
     const city = event.target.city.value;
     const unit = event.target.unit.value;
+    const dataType = event.target.dataType;
+    const language = event.target.language.value;
     console.log(city);
     console.log(unit);
+    console.log(dataType);
+    console.log(language);
 }
 
 
@@ -19,7 +23,8 @@ function App() {
     <Container>
       <Row>
         <Col>
-          <HeaderComponent handleOnSubmitForm={handleOnSubmit} />
+          <HeaderComponent firstName="Rasim" handleOnSubmitForm={handleOnSubmit} />
+          
         </Col>
       </Row>
     </Container>

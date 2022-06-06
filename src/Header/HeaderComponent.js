@@ -10,3 +10,8 @@ export default function HeaderComponent(props) {
         </>
     )
 }
+
+HeaderComponent.defaultProps = {
+    firstName: "Anfrej",
+    lastName: "Mehtijev",
+  }
