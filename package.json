@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "comments": "npm start - zapuskajet react-script start - build a potom start. vsjo zapuskajetsa pri sohraninii"
   },
   "eslintConfig": {
     "extends": [
