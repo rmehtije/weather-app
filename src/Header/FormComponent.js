@@ -4,14 +4,8 @@ import cities from './cities.json';
 import dataTypes from './type.json';
 
 export default function FormComponent(props) {
-// useRef в основном как способ получить доступ к DOM.
-// 4toby nazna4it s kakoj element my budem ssylatsa my ispol'zujem atrib ref={} v html
-// My poluchajem vsjo derevo DOM v objecte current. formElement.current
   const formElement = useRef(null);
 
-  // useEffect po bolshe stepeni ispolzujetsa dlja raboty s DOM
-  // useEffect zapuskajetsa posle togo kak render componenta zakon4ilsa
-  // useEffent na sam component - on ne zapuskajet render ili rerender.
   useEffect(() => {
     if(props.form === null) {
       props.setForm({
@@ -22,32 +16,12 @@ export default function FormComponent(props) {
     }
   });
 
-  // onInput zapuskajetsa pri vvedenija dannqh ot pol'zovatelja. v input html teg.
-  // tol'ko v Form i input teg.
   function OnInput () {
-    // Funkcqja kotoraja berjot nashu ssylku na element (Form) DOM, i nazna4ajet jemu novoe Sobytije
-    // Eto novoje sobytije zapuskajet Submit funkciju Formi.
     formElement.current.dispatchEvent(
       new Event("submit", { cancelable: true, bubbles: true })
     );
   }
 
-  // onInput i onSubmit = События HTML — это «вещи» , которые происходят с элементами HTML.
-  // sobitija ishodjat iz brauzera i iz po'zovatelja.
-  // u sobitija dolzhen bqt obrabot4ik - javascript funkcqija
-  // sobitije peredjot obrabot4iku 1. dom strukturu elemnta na kotorym visit sobytije.
-  // event.target
-
-  // Form ispolzujetsa dlja polu4enija dannqh ot pol'zovatelja i poslat ih na server dlja obrabotki
-  // Form dlja etogo ispolzujet dva glanvqh protokola POST i GET
-  // POST - vosnovnom ispo'zujetsa dlja otpravki dannqh
-  // GET - dlja polu4enija
-  // Po umol4aniju on otpravljajet dannqje 4erez method POST
-  // A jesli mq hotim izmenit my propisqvajem otribut method="GET"
-  // v Forme ispolzujutsa input tegi dlja sbora dannqh
-
-  // V Reacte kazhdqj elemnt dolzhqn bqt unikalnqm. Eto nuzhno dlja otslezhevanija ljubqh izmenenij 
-  // v componente i tem samqm renderit tol'ko to 4to neobhodimo.
   return (
     <Container>
       <Form method="GET" ref={formElement} onInput={OnInput} onSubmit={props.handleOnSubmitForm}>

@@ -15,9 +15,6 @@ export default function MapComponent(props) {
     googleMapsApiKey: google_api_key
   });
 
-  // {}.city = undefined Ne dajot oshybku
-  // null.city = Oshqbka
-  // undefined.city = Oshqbka
   return (
     <Container className="mt-3">
       {isLoaded ? (
