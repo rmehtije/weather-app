@@ -27,7 +27,7 @@ export default function BodyComponent(props) {
 
   return (
     <>
-      <DataComponent {...props} />
+      <DataComponent {...props} weather={weather}/>
       {weather && (<MapComponent {...props} weather={weather}/>)}
     </>
   )

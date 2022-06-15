@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
 import { google_api_key } from '../keys';
 import cities from '../Header/cities.json';
 
@@ -20,17 +20,20 @@ export default function MapComponent(props) {
     lng: props.weather.coord.lon
   };
   return (
-    <Container className="mt-3">
-      {isLoaded ? (
+    <>
+      {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
           zoom={10}
         >
-          { /* Child components, such as markers, info windows, etc. */}
-          <></>
+          <InfoWindow position={center}>
+            <div style={{ fontSize: 20, fontColor: `#08233B` }}>
+              {props.weather.main.temp}
+            </div>
+          </InfoWindow>
         </GoogleMap>
-      ) : <></>}
-    </Container>
+      )}
+    </>
   )
 }
