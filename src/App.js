@@ -43,7 +43,7 @@ function App() {
 
     setCookie('weather', updateData);
   }
-
+  // My ostavili HeaderComponent statichnqm pri izmenenii ssqlki
   return (
     <Container>
       <Row>
@@ -60,6 +60,12 @@ function App() {
       </Row>
       <Row>
         <Col>
+        {/* Vnutri komponenta Routes my propisqvajem nashy ssqlki
+          Kazhdaja ssqlka eto Route komponent kotorqj zapuskajetsa pri zahode na ssqlku opredeljonnoj v path
+          v element propisqvajetsa tot komponenet kotorqj dolzhen obrabotatsa.
+          4tobq peredat' ljuboj parametr v komponent v Route path pishetsa :(nazvanije peremennyj)
+          :city = Tallinn
+        */}
           <Routes>
             <Route path="/" element={<CurrentComponent form={form} cookie={cookies.weather} />} />
             <Route path="/current/:city" element={<CurrentComponent form={form} cookie={cookies.weather} />} />

@@ -14,6 +14,11 @@ export default function NavComponent() {
                         className="me-auto"
                         navbarScroll
                     >
+                        {/* Link zapuskajet obrabotku pravel'nogo kompanenta.
+                            Bez Link terjajetsa smqsl react route poskolku obqn4qj <a href="/"></a> 
+                            perezapuskajet vsjo stranicu.
+                            
+                        */}
                         <Link className="nav-link" to="/">Home</Link>
                         <Link className="nav-link" to="/current/0">Tallinn</Link>
                         <Link className="nav-link" to="/current/1">Tartu</Link>
