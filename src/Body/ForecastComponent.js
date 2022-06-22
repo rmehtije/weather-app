@@ -19,13 +19,23 @@ export default function ForecastComponent(props) {
         const dataByDays = [];
 
         for (const [index, data] of response.list.entries()) {
-          oneDay.push(data);
 
-          if ((index + 1) % 8 === 0) {
+          const dayOfDate = moment.unix(data.dt).date(); // 22
+          const prevDayOfDate = oneDay.length ? moment.unix(oneDay[oneDay.length - 1].dt).date() : dayOfDate; // {ljuboe 4islo} || 22
+
+          if(dayOfDate === prevDayOfDate) {
+            oneDay.push(data);
+          } else {
             dataByDays.push(oneDay);
             oneDay = [];
-
+            oneDay.push(data);
           }
+
+          // if ((index + 1) % 8 === 0) {
+          //   dataByDays.push(oneDay);
+          //   oneDay = [];
+
+          // }
         }
 
         setDays(dataByDays);
@@ -50,7 +60,7 @@ export default function ForecastComponent(props) {
           <Tab eventKey={index1} key={index1} title={"Day " + moment.unix(day[0].dt).date()}>
             <Tabs className="mb-3 mt-2">
               {day.map((data, index2) => (
-                <Tab eventKey={index2} key={index2} title={data.dt_txt}>
+                <Tab eventKey={index2} key={index2} title={moment.unix(data.dt).format('HH:mm')}>
                   <DataComponent {...props} weather={data}/>
                 </Tab>
               ))}
