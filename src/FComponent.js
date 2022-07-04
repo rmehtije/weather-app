@@ -14,4 +14,4 @@ export default function FComponent (props) {
 FComponent.defaultProps = {
     firstName: "Anfrej",
     lastName: "Mehtijev",
-  }
+}

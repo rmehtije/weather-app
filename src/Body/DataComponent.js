@@ -7,25 +7,25 @@ export default function DataComponent(props) {
 
   function getMeasurements(key) {
     const unit = props.cookie.unit;
-    let sign = '';
+    const temprature = ['temp_min', 'temp_max', 'temp', 'feels_like'];
+    const humidity = 'humidity';
+    const pressure = 'pressure';
 
-    switch(key) {
-      case 'temp_min':
-      case 'temp_max':
-      case 'temp':
-      case 'feels_like':
-        if(unit === 'metric') {
-          sign = (<>&#8451;</>);
-        }
-        if(unit === 'standard') {
-          sign = (<>&#8490;</>);
-        }
-        if(unit === 'imperial') {
-          sign = (<>&#8457;</>);
-        }
+    const tempSign = {
+      metric: (<>&#8451;</>),
+      standard: (<>&#8490;</>),
+      imperial: (<>&#8457;</>)
     }
-    
-    return sign;
+
+    if(temprature.includes(key)) {
+      return tempSign[unit];
+    }
+    if(humidity===key) {
+      return '%';
+    }
+    if(pressure===key) {
+      return (<>&#13169;</>);
+    }
   }
 
   function generateRows() {
@@ -41,7 +41,6 @@ export default function DataComponent(props) {
         <td>Description</td>
         <td>{props.weather.weather[0].description}</td>
       </tr>);
-
 
       return tr;
     }
